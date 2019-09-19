@@ -208,7 +208,7 @@ class ObservationService
                 $data["ob_unit"],
                 $data["description"],
                 $data["code_type"],
-                $data["table_code"]
+                $data["table_code"],
                 $oid
             )
         );
