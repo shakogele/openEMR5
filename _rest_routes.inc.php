@@ -131,11 +131,11 @@ RestConfig::$ROUTE_MAP = array(
         return (new EncounterRestController())->putSoapNote($pid, $eid, $sid, $data);
     },
     "GET /api/patient/:pid/observation" => function ($pid) {
-        RestConfig::authorization_check("observations", "auth_a");
+        RestConfig::authorization_check("patients", "auth_a");
         return (new ObservationRestController())->getAll($pid);
     },
     "GET /api/patient/:pid/observation/:oid" => function ($pid, $eid) {
-        RestConfig::authorization_check("observations", "auth_a");
+        RestConfig::authorization_check("patients", "auth_a");
         return (new ObservationRestController())->getOne($pid, $eid);
     },
     "GET /api/patient/:pid/medical_problem" => function ($pid) {

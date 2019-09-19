@@ -24,9 +24,9 @@ class ObservationRestController
         $this->observationService = new ObservationService();
     }
 
-    public function getOne($pid, $eid)
+    public function getOne($pid, $oid)
     {
-        $serviceResult = $this->observationService->getObservationForPatient($pid, $eid);
+        $serviceResult = $this->observationService->getObservationForPatient($pid, $oid);
         return RestControllerHelper::responseHandler($serviceResult, null, 200);
     }
 

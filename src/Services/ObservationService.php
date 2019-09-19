@@ -88,7 +88,7 @@ class ObservationService
     // @todo recm changing routes
     // encounter id is system unique so pid is not needed
     // resources should be independent where possible
-    public function getObservationForPatient($pid, $eid)
+    public function getObservationForPatient($pid, $oid)
     {
         $sql = "SELECT fo.id as id,
                        fo.date,
@@ -106,11 +106,11 @@ class ObservationService
                        fo.code_type,
                        fo.table_code
                        FROM form_observation as fo
-                       WHERE pid=? and fo.encounter=?
+                       WHERE pid=? and fo.id=?
                        ORDER BY fo.id
                        DESC";
 
-        return sqlQuery($sql, array($pid, $eid));
+        return sqlQuery($sql, array($pid, $oid));
     }
 
 }
