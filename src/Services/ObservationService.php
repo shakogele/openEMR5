@@ -145,7 +145,7 @@ class ObservationService
         $sql .= "     description=?,";
         $sql .= "     code_type=?,";
         $sql .= "     table_code=?,";
-
+        return $sql;
         $results = sqlInsert(
             $sql,
             array(
