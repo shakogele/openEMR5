@@ -21,6 +21,7 @@ use OpenEMR\RestControllers\VersionRestController;
 use OpenEMR\RestControllers\ProductRegistrationRestController;
 use OpenEMR\RestControllers\PatientRestController;
 use OpenEMR\RestControllers\EncounterRestController;
+use OpenEMR\RestControllers\ObservationRestController;
 use OpenEMR\RestControllers\ProviderRestController;
 use OpenEMR\RestControllers\ListRestController;
 use OpenEMR\RestControllers\InsuranceCompanyRestController;
@@ -128,6 +129,14 @@ RestConfig::$ROUTE_MAP = array(
         RestConfig::authorization_check("encounters", "notes");
         $data = (array)(json_decode(file_get_contents("php://input")));
         return (new EncounterRestController())->putSoapNote($pid, $eid, $sid, $data);
+    },
+    "GET /api/patient/:pid/observation" => function ($pid) {
+        RestConfig::authorization_check("observations", "auth_a");
+        return (new ObservationRestController())->getAll($pid);
+    },
+    "GET /api/patient/:pid/observation/:oid" => function ($pid, $eid) {
+        RestConfig::authorization_check("observations", "auth_a");
+        return (new ObservationRestController())->getOne($pid, $eid);
     },
     "GET /api/patient/:pid/medical_problem" => function ($pid) {
         RestConfig::authorization_check("encounters", "notes");
