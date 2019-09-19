@@ -32,8 +32,8 @@ class ObservationService
     {
         $validator = new Validator();
 
-        $validator->required('pid')->lengthBetween(2, 255);
-        $validator->required('encounter')->lengthBetween(2, 255);
+        $validator->required('pid')->lengthBetween(1, 255);
+        $validator->required('encounter')->lengthBetween(1, 255);
         $validator->required('code')->lengthBetween(4, 30);
         $validator->required('date')->datetime('Y-m-d');
         $validator->required('observation')->lengthBetween(2, 255);
