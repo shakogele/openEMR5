@@ -28,6 +28,21 @@ class ObservationService
     {
     }
 
+    public function validate($observation)
+    {
+        $validator = new Validator();
+
+        $validator->required('pid')->lengthBetween(2, 255);
+        $validator->required('encounter')->lengthBetween(2, 255);
+        $validator->required('code')->lengthBetween(4, 30);
+        $validator->required('date')->datetime('Y-m-d');
+        $validator->required('observation')->lengthBetween(2, 255);
+        $validator->required('ob_value')->lengthBetween(2, 255);
+        $validator->required('ob_unit')->lengthBetween(2, 255);
+
+        return $validator->validate($observation);
+    }
+
     public function getObservationsForPatient($pid)
     {
         $sql = "SELECT fo.id as id,
@@ -111,6 +126,92 @@ class ObservationService
                        DESC";
 
         return sqlQuery($sql, array($pid, $oid));
+    }
+
+    public function insert($data)
+    {
+        $sql = " INSERT INTO form_observation SET";
+        $sql .= "     date=?,";
+        $sql .= "     pid=?,";
+        $sql .= "     encounter=?,";
+        $sql .= "     user=?,";
+        $sql .= "     groupname=?,";
+        $sql .= "     authorized=?,";
+        $sql .= "     activity=?,";
+        $sql .= "     code=?,";
+        $sql .= "     observation=?,";
+        $sql .= "     ob_value=?,";
+        $sql .= "     ob_unit=?,";
+        $sql .= "     description=?,";
+        $sql .= "     code_type=?,";
+        $sql .= "     table_code=?,";
+
+        $results = sqlInsert(
+            $sql,
+            array(
+                $data["date"],
+                $data["pid"],
+                $data["encounter"],
+                $data["user"],
+                $data["groupname"],
+                $data["authorized"],
+                $data["activity"],
+                $data["code"],
+                $data["observation"],
+                $data["ob_value"],
+                $data["ob_unit"],
+                $data["description"],
+                $data["code_type"],
+                $data["table_code"]
+            )
+        );
+
+        if ($results) {
+            return $data;
+        }
+
+        return $results;
+    }
+
+    public function update($oid, $data)
+    {
+        $sql = " UPDATE form_observation SET";
+        $sql .= "     date=?,";
+        $sql .= "     pid=?,";
+        $sql .= "     encounter=?,";
+        $sql .= "     user=?,";
+        $sql .= "     groupname=?,";
+        $sql .= "     authorized=?,";
+        $sql .= "     activity=?,";
+        $sql .= "     code=?,";
+        $sql .= "     observation=?,";
+        $sql .= "     ob_value=?,";
+        $sql .= "     ob_unit=?,";
+        $sql .= "     description=?,";
+        $sql .= "     code_type=?,";
+        $sql .= "     table_code=?,";
+        $sql .= "     where id=?";
+
+        return sqlStatement(
+            $sql,
+            array(
+                $data["date"],
+                $data["pid"],
+                $data["encounter"],
+                $data["user"],
+                $data["groupname"],
+                $data["authorized"],
+                $data["activity"],
+                $data["code"],
+                $data["observation"],
+                $data["ob_value"],
+                $data["ob_unit"],
+                $data["description"],
+                $data["code_type"],
+                $data["table_code"]
+                $oid
+            )
+        );
     }
 
 }

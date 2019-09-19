@@ -138,6 +138,16 @@ RestConfig::$ROUTE_MAP = array(
         RestConfig::authorization_check("patients", "auth_a");
         return (new ObservationRestController())->getOne($pid, $eid);
     },
+    "POST /api/patient/:pid/observation" => function () {
+        RestConfig::authorization_check("patients", "auth_a");
+        $data = (array)(json_decode(file_get_contents("php://input")));
+        return (new ObservationRestController(null))->post($data);
+    },
+    "PUT /api/patient/:pid/observation/:oid" => function ($oid) {
+        RestConfig::authorization_check("patients", "auth_a");
+        $data = (array)(json_decode(file_get_contents("php://input")));
+        return (new ObservationRestController(null))->put($oid, $data);
+    },
     "GET /api/patient/:pid/medical_problem" => function ($pid) {
         RestConfig::authorization_check("encounters", "notes");
         return (new ListRestController())->getAll($pid, "medical_problem");

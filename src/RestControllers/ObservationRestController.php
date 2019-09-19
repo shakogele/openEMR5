@@ -35,4 +35,28 @@ class ObservationRestController
         $serviceResult = $this->observationService->getObservationsForPatient($pid);
         return RestControllerHelper::responseHandler($serviceResult, null, 200);
     }
+
+    public function post($data)
+    {
+        $validationResult = $this->observationService->validate($data);
+
+        $validationHandlerResult = RestControllerHelper::validationHandler($validationResult);
+        if (is_array($validationHandlerResult)) {
+            return $validationHandlerResult; }
+
+        $serviceResult = $this->observationService->insert($data);
+        return RestControllerHelper::responseHandler($serviceResult, array("data" => $serviceResult), 201);
+    }
+
+    public function put($oid, $data)
+    {
+        $validationResult = $this->observationService->validate($data);
+
+        $validationHandlerResult = RestControllerHelper::validationHandler($validationResult);
+        if (is_array($validationHandlerResult)) {
+            return $validationHandlerResult; }
+
+        $serviceResult = $this->observationService->update($oid, $data);
+        return RestControllerHelper::responseHandler($serviceResult, array("oid" => $oid), 200);
+    }
 }
