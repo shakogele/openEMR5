@@ -356,4 +356,8 @@ RestConfig::$FHIR_ROUTE_MAP = array(
         $data = (array) RestConfig::getPostData((file_get_contents("php://input")));
         return $data;
     },
+    "POST /fhir/Observation" => function () {
+        $data = (array) RestConfig::getPostData((file_get_contents("php://input")));
+        return $data;
+    },
 );
