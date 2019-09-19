@@ -144,7 +144,7 @@ class ObservationService
         $sql .= "     ob_unit=?,";
         $sql .= "     description=?,";
         $sql .= "     code_type=?,";
-        $sql .= "     table_code=?,";
+        $sql .= "     table_code=?";
         return $sql;
         $results = sqlInsert(
             $sql,
@@ -189,7 +189,7 @@ class ObservationService
         $sql .= "     ob_unit=?,";
         $sql .= "     description=?,";
         $sql .= "     code_type=?,";
-        $sql .= "     table_code=?,";
+        $sql .= "     table_code=?";
         $sql .= "     where id=?";
 
         return sqlStatement(
