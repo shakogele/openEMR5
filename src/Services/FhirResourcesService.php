@@ -117,6 +117,12 @@ class FhirResourcesService
         $effectivePeriod = [
           "start" => $nowDate
         ];
+        $valueQuantity = [
+          "value" => 6.3,
+          "unit" => "mmol/l",
+          "system" => "http://unitsofmeasure.org",
+          "code" => "mmol/L"
+        ];
 
         $id = new FhirId();
         $id->setValue($resourceId);
@@ -129,8 +135,9 @@ class FhirResourcesService
         $observationResource->setStatus("final");
         $observationResource->setCode(["coding" => $fhirCode]);
         $observationResource->setSubject($fhirSubject);
-        $observationResource->setEffectivePeriod($fhirSubject);
+        $observationResource->setEffectivePeriod($effectivePeriod);
         $observationResource->setIssued($nowDate);
+        $observationResource->setValueQuantity($valueQuantity);
 
         if ($encode) {
             return json_encode($observationResource);
