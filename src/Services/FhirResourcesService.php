@@ -153,11 +153,10 @@ class FhirResourcesService
       $code = $observationResource->getCode();
       $subject = $observationResource->getSubject();
       $value = $observationResource->getValueQuantity();
-      return explode($subject["reference"]);
       $observationArr = [
         "id"          => $identifier[0]["value"],
         "date"        => $observationResource->getIssued(),
-        "pid"         => explode($subject["reference"]),
+        "pid"         => explode("/",$subject["reference"])[1],
         "encounter"   => "3",
         "user"        => "shakogeleadmin",
         "groupname"   => "Default",
