@@ -112,7 +112,7 @@ class FhirResourcesService
           "display" => "Glucose [Moles/volume] in Blood"
         ];
         $fhirSubject = [
-          "reference" => "Patient/$data['pid']",
+          "reference" => "Patient/".$data[pid],
           "display" => $data["patient"]
         ];
         $effectivePeriod = [
