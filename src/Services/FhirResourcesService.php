@@ -110,6 +110,14 @@ class FhirResourcesService
           "code" => "15074-8",
           "display" => "Glucose [Moles/volume] in Blood"
         ];
+        $fhirSubject = [
+          "reference" => "Patient/f001",
+          "display" => "P. van de Heuvel"
+        ];
+        $effectivePeriod = [
+          "start" => $nowDate
+        ];
+
         $id = new FhirId();
         $id->setValue($resourceId);
         $meta = array('versionId' => '1', 'lastUpdated' => $nowDate);
@@ -119,7 +127,10 @@ class FhirResourcesService
         $observationResource = new FHIRObservation($initResource);
         $observationResource->addIdentifier($identifier);
         $observationResource->setStatus("final");
-        $observationResource->setCode($fhirCode);
+        $observationResource->setCode(["coding" => $fhirCode]);
+        $observationResource->setSubject($fhirSubject);
+        $observationResource->setEffectivePeriod($fhirSubject);
+        $observationResource->setIssued($nowDate);
 
         if ($encode) {
             return json_encode($observationResource);
