@@ -75,7 +75,7 @@ class ObservationService
         return $results;
     }
 
-    public function getObservation($eid)
+    public function getObservation($oid)
     {
         $sql = "SELECT fo.id as id,
                        fo.date,
@@ -97,7 +97,7 @@ class ObservationService
                        ORDER BY fo.id
                        DESC";
 
-        return sqlQuery($sql, array($eid));
+        return sqlQuery($sql, array($oid));
     }
 
     // @todo recm changing routes

@@ -15,6 +15,8 @@ namespace OpenEMR\Services;
 use OpenEMR\FHIR\R4\FHIRDomainResource\FHIREncounter;
 use OpenEMR\FHIR\R4\FHIRDomainResource\FHIRPatient;
 use OpenEMR\FHIR\R4\FHIRDomainResource\FHIRPractitioner;
+use OpenEMR\FHIR\R4\FHIRDomainResource\FHIRObservation;
+
 use OpenEMR\FHIR\R4\FHIRElement\FHIRAddress;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRAdministrativeGender;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRCodeableConcept;
@@ -90,6 +92,16 @@ class FhirResourcesService
             return json_encode($patientResource);
         } else {
             return $patientResource;
+        }
+    }
+
+    public function createObservationResource($data = '', $encode = true)
+    {
+        $observationResource = new FHIRObservation($data);
+        if ($encode) {
+            return json_encode($observationResource);
+        } else {
+            return $observationResource;
         }
     }
 
