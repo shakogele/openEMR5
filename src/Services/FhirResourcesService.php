@@ -22,6 +22,7 @@ use OpenEMR\FHIR\R4\FHIRElement\FHIRAdministrativeGender;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRCodeableConcept;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRHumanName;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRId;
+use OpenEMR\FHIR\R4\FHIRElement\FHIRIdentifier;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRReference;
 use OpenEMR\FHIR\R4\FHIRResource\FHIREncounter\FHIREncounterParticipant;
 use OpenEMR\FHIR\R4\FHIRResource\FHIRBundle;
@@ -98,12 +99,20 @@ class FhirResourcesService
     public function createObservationResource($resourceId = '', $data = '', $encode = true)
     {
         $nowDate = date("Y-m-d\TH:i:s");
+        $fhirIdentifierData = [
+          "user" => "official",
+          "system" => "http://www.bmc.nl/zorgportal/identifiers/observations",
+          "value" => $data["id"]
+        ];
         $id = new FhirId();
         $id->setValue($resourceId);
         $meta = array('versionId' => '1', 'lastUpdated' => $nowDate);
         $initResource = array('id' => $id, 'meta' => $meta);
+        $identifier = new FHIRIdentifier($fhirIdentifierData);
 
         $observationResource = new FHIRObservation($initResource);
+        $observationResource->addIdentifier($identifier);
+
         if ($encode) {
             return json_encode($observationResource);
         } else {
