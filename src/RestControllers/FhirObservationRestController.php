@@ -41,9 +41,8 @@ class FhirObservationRestController
     public function createOne($fhirObservation){
 
         $observation = $this->fhirService->parseObservationResource($fhirObservation);
-        return $observation;
         $this->observationService->insert($observation);
-        return RestControllerHelper::responseHandler($observationResource, null, 200);
+        return RestControllerHelper::responseHandler($fhirObservation, null, 200);
     }
 
     public function getAll($search)
