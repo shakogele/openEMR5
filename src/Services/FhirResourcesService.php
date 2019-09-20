@@ -146,6 +146,11 @@ class FhirResourcesService
         }
     }
 
+    public function parseObservationResource($observationResource){
+      $status = $observationResource->getStatus();
+      return ["Status" => $status];
+    }
+
     public function createPractitionerResource($id = '', $data = '', $encode = true)
     {
         $resource = new FHIRPractitioner();
