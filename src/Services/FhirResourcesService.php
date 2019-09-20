@@ -149,6 +149,25 @@ class FhirResourcesService
     public function parseObservationResource($observationResourceData){
       $observationResource = new FHIRObservation($observationResourceData);
       $status = $observationResource->getStatus();
+      $identifier = $observationResource->getIdentifier();
+      return $identifier;
+      $observationArr = [
+        "id"          => "5",
+        "date"        => "2019-09-20",
+        "pid"         => "3",
+        "encounter"   => "3",
+        "user"        => "shakogeleadmin",
+        "groupname"   => "Default",
+        "authorized"  => "1",
+        "activity"    => "1",
+        "code"        => "10839-9",
+        "observation" => "New Observation",
+        "ob_value"    => "",
+        "ob_unit"     => null,
+        "description" => "Troponin I.cardiac [Mass/volume] in Serum or Plasma",
+        "code_type"   => "LOINC",
+        "table_code"  => "LN"
+      ];
       return ["Status" => $status];
     }
 
