@@ -107,8 +107,8 @@ class FhirResourcesService
         ];
         $fhirCode = [
           "system" => "http://loinc.org",
-          "code" => "15074-8",
-          "display" => "Glucose [Moles/volume] in Blood"
+          "code" => $data["code"],
+          "display" => $data["description"]
         ];
         $fhirSubject = [
           "reference" => "Patient/".$data[pid],
@@ -118,8 +118,8 @@ class FhirResourcesService
           "start" => $nowDate
         ];
         $valueQuantity = [
-          "value" => 6.3,
-          "unit" => "mmol/l",
+          "value" => $data["ob_value"],
+          "unit" => $data["ob_unit"],
           "system" => "http://unitsofmeasure.org",
           "code" => "mmol/L"
         ];
