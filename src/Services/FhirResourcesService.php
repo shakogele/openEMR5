@@ -153,6 +153,7 @@ class FhirResourcesService
       $code = $observationResource->getCode();
       $subject = $observationResource->getSubject();
       $value = $observationResource->getValueQuantity();
+      return $subject;
       $observationArr = [
         "id"          => $identifier[0]["value"],
         "date"        => $observationResource->getIssued(),
