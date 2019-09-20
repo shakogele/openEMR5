@@ -153,11 +153,9 @@ class FhirResourcesService
       $code = $observationResource->getCode();
       $subject = $observationResource->getSubject();
       $value = $observationResource->getValueQuantity();
-      return $value;
-      return $identifier[0]["value"];
       $observationArr = [
-        "id"          => "5",
-        "date"        => "2019-09-20",
+        "id"          => $identifier["value"],
+        "date"        => $observationResource->getIssued(),
         "pid"         => explode($subject["reference"])[1],
         "encounter"   => "3",
         "user"        => "shakogeleadmin",
@@ -166,13 +164,13 @@ class FhirResourcesService
         "activity"    => "1",
         "code"        => $code["code"],
         "observation" => "New Observation",
-        "ob_value"    => "",
-        "ob_unit"     => null,
+        "ob_value"    => $value["value"],
+        "ob_unit"     => $value["unit"],
         "description" => $code["display"],
         "code_type"   => "LOINC",
         "table_code"  => "LN"
       ];
-      return ["Status" => $status];
+      return ["Observation" => $observationArr];
     }
 
     public function createPractitionerResource($id = '', $data = '', $encode = true)
