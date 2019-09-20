@@ -95,9 +95,15 @@ class FhirResourcesService
         }
     }
 
-    public function createObservationResource($data = '', $encode = true)
+    public function createObservationResource($resourceId = '', $data = '', $encode = true)
     {
-        $observationResource = new FHIRObservation($data);
+        $nowDate = date("Y-m-d\TH:i:s");
+        $id = new FhirId();
+        $id->setValue($resourceId);
+        $meta = array('versionId' => '1', 'lastUpdated' => $nowDate);
+        $initResource = array('id' => $id, 'meta' => $meta);
+
+        $observationResource = new FHIRObservation($initResource);
         if ($encode) {
             return json_encode($observationResource);
         } else {
