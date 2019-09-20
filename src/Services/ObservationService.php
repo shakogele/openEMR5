@@ -77,7 +77,6 @@ class ObservationService
 
     public function getObservation($oid)
     {
-        return ["oid" => $oid];
         $sql = "SELECT fo.id,
                        fo.date,
                        fo.pid,
@@ -93,7 +92,7 @@ class ObservationService
                        fo.description,
                        fo.code_type,
                        fo.table_code,
-                       pd.lname as patient
+                       CONCAT(pd.title, pd.fname, pd.lname) as patient
                        FROM form_observation as fo
                        LEFT JOIN patient_data pd
                        ON fo.pid = pd.id
