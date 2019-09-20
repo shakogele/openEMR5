@@ -99,7 +99,7 @@ class FhirResourcesService
 
     public function createObservationResource($resourceId = '', $data = '', $encode = true)
     {
-        return $data;
+        // return $data;
         $nowDate = date("Y-m-d\TH:i:s");
         $fhirIdentifierData = [
           "use" => "official",
@@ -112,8 +112,8 @@ class FhirResourcesService
           "display" => "Glucose [Moles/volume] in Blood"
         ];
         $fhirSubject = [
-          "reference" => "Patient/f001",
-          "display" => "P. van de Heuvel"
+          "reference" => "Patient/$data['pid']",
+          "display" => $data["patient"]
         ];
         $effectivePeriod = [
           "start" => $nowDate

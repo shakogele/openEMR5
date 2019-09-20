@@ -91,8 +91,11 @@ class ObservationService
                        fo.ob_unit,
                        fo.description,
                        fo.code_type,
-                       fo.table_code
+                       fo.table_code,
+                       CONCAT(pd.title, pd.fname, pd.lname) as patient
                        FROM form_observation as fo
+                       LEFT JOIN patient_data pd
+                       ON fo.pid = pd.id
                        WHERE fo.id=?
                        ORDER BY fo.id
                        DESC";
