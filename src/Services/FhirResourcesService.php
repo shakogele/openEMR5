@@ -156,7 +156,7 @@ class FhirResourcesService
       $observationArr = [
         "id"          => $identifier[0]["value"],
         "date"        => $observationResource->getIssued(),
-        "pid"         => explode($subject["reference"])[1],
+        "pid"         => explode($subject["reference"]),
         "encounter"   => "3",
         "user"        => "shakogeleadmin",
         "groupname"   => "Default",
