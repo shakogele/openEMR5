@@ -150,7 +150,7 @@ class FhirResourcesService
       $observationResource = new FHIRObservation($observationResourceData);
       $status = $observationResource->getStatus();
       $identifier = $observationResource->getIdentifier();
-      $code = $observationResource->getCode();
+      $code = $observationResource->getCode()["coding"];
       $subject = $observationResource->getSubject();
       $value = $observationResource->getValueQuantity();
       $observationArr = [
