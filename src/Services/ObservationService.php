@@ -77,6 +77,7 @@ class ObservationService
 
     public function getObservation($oid)
     {
+        return ["oid" => $oid];
         $sql = "SELECT fo.id,
                        fo.date,
                        fo.pid,
