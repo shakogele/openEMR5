@@ -92,7 +92,7 @@ class ObservationService
                        fo.description,
                        fo.code_type,
                        fo.table_code,
-                       CONCAT(pd.title, ' ' ,pd.fname, ' ' ,pd.lname) as patient
+                       CONCAT(pd.title,pd.fname,pd.lname) as patient
                        FROM form_observation as fo
                        LEFT JOIN patient_data pd
                        ON fo.pid = pd.id
