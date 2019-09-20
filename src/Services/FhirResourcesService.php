@@ -150,7 +150,7 @@ class FhirResourcesService
       $observationResource = new FHIRObservation($observationResourceData);
       $status = $observationResource->getStatus();
       $identifier = $observationResource->getIdentifier();
-      return $identifier;
+      return $identifier->value;
       $observationArr = [
         "id"          => "5",
         "date"        => "2019-09-20",
