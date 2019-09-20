@@ -23,6 +23,7 @@ use OpenEMR\FHIR\R4\FHIRElement\FHIRCodeableConcept;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRHumanName;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRId;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRIdentifier;
+use OpenEMR\FHIR\R4\FHIRElement\FHIRCode;
 use OpenEMR\FHIR\R4\FHIRElement\FHIRReference;
 use OpenEMR\FHIR\R4\FHIRResource\FHIREncounter\FHIREncounterParticipant;
 use OpenEMR\FHIR\R4\FHIRResource\FHIRBundle;
@@ -100,9 +101,14 @@ class FhirResourcesService
     {
         $nowDate = date("Y-m-d\TH:i:s");
         $fhirIdentifierData = [
-          "user" => "official",
+          "use" => "official",
           "system" => "http://www.bmc.nl/zorgportal/identifiers/observations",
           "value" => $data["id"]
+        ];
+        $fhirCode = [
+          "system": "http://loinc.org",
+          "code": "15074-8",
+          "display": "Glucose [Moles/volume] in Blood"
         ];
         $id = new FhirId();
         $id->setValue($resourceId);
@@ -112,6 +118,8 @@ class FhirResourcesService
 
         $observationResource = new FHIRObservation($initResource);
         $observationResource->addIdentifier($identifier);
+        $observationResource->setStatus("final");
+        $observationResource->setCode($fhirCode);
 
         if ($encode) {
             return json_encode($observationResource);
