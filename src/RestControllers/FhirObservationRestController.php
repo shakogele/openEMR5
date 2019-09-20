@@ -25,7 +25,6 @@ class FhirObservationRestController
     public function __construct($pid)
     {
         $this->observationService = new ObservationService();
-        $this->observationService->setPid($pid);
         $this->fhirService = new FhirResourcesService();
     }
 

@@ -349,6 +349,7 @@ RestConfig::$ROUTE_MAP = array(
 
 use OpenEMR\RestControllers\FhirPatientRestController;
 use OpenEMR\RestControllers\FhirEncounterRestController;
+use OpenEMR\RestControllers\FhirObservationRestController;
 
 RestConfig::$FHIR_ROUTE_MAP = array(
     "POST /fhir/auth" => function () {
@@ -370,6 +371,10 @@ RestConfig::$FHIR_ROUTE_MAP = array(
     "GET /fhir/Encounter/:eid" => function ($eid) {
         RestConfig::authorization_check("encounters", "auth_a");
         return (new FhirEncounterRestController())->getOne($eid);
+    },
+    "GET /fhir/Observation/:oid" => function ($oid) {
+        RestConfig::authorization_check("encounters", "auth_a");
+        return (new FhirObservationRestController())->getOne($oid);
     },
     "POST /fhir/Patient" => function () {
         $data = (array) RestConfig::getPostData((file_get_contents("php://input")));
