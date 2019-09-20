@@ -170,7 +170,7 @@ class FhirResourcesService
         "code_type"   => "LOINC",
         "table_code"  => "LN"
       ];
-      return ["Observation" => $observationArr];
+      return $observation;
     }
 
     public function createPractitionerResource($id = '', $data = '', $encode = true)
