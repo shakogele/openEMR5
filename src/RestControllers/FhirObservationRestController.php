@@ -33,7 +33,7 @@ class FhirObservationRestController
     public function getOne($oid)
     {
         $observation = $this->observationService->getObservation($oid);
-        return ["Hello "=> "Observation"];
+        return ["Hello "=> $observation];
 
         // print_r($observation);
         // die();
