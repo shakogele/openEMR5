@@ -34,9 +34,7 @@ class FhirObservationRestController
     {
         $observation = $this->observationService->getObservation($oid);
         $observationResource = $this->fhirService->createObservationResource($observation, false);
-        return ["Hello "=> $observationResource];
-
-        // return RestControllerHelper::responseHandler($observationResource, null, 200);
+        return RestControllerHelper::responseHandler($observationResource, null, 200);
     }
 
     public function getAll($search)
