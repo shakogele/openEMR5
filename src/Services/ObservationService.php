@@ -93,7 +93,7 @@ class ObservationService
                        fo.code_type,
                        fo.table_code
                        FROM form_observation as fo
-                       WHERE fo.encounter=?
+                       WHERE fo.id=?
                        ORDER BY fo.id
                        DESC";
 
