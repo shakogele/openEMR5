@@ -33,12 +33,9 @@ class FhirObservationRestController
     public function getOne($oid)
     {
         $observation = $this->observationService->getObservation($oid);
-        return ["Hello "=> $observation];
+        $observationResource = $this->fhirService->createObservationResource($observation, false);
+        return ["Hello "=> $observationResource];
 
-        // print_r($observation);
-        // die();
-        // $observationResource = $this->fhirService->createObservationResource($observation, false);
-        //
         // return RestControllerHelper::responseHandler($observationResource, null, 200);
     }
 
