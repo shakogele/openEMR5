@@ -106,9 +106,9 @@ class FhirResourcesService
           "value" => $data["id"]
         ];
         $fhirCode = [
-          "system": "http://loinc.org",
-          "code": "15074-8",
-          "display": "Glucose [Moles/volume] in Blood"
+          "system" => "http://loinc.org",
+          "code" => "15074-8",
+          "display" => "Glucose [Moles/volume] in Blood"
         ];
         $id = new FhirId();
         $id->setValue($resourceId);
