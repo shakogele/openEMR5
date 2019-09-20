@@ -146,7 +146,8 @@ class FhirResourcesService
         }
     }
 
-    public function parseObservationResource($observationResource){
+    public function parseObservationResource($observationResourceData){
+      $observationResource = new FHIRObservation($observationResourceData);
       $status = $observationResource->getStatus();
       return ["Status" => $status];
     }
