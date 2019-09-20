@@ -374,6 +374,8 @@ RestConfig::$FHIR_ROUTE_MAP = array(
     },
     "GET /fhir/Observation/:oid" => function ($oid) {
         RestConfig::authorization_check("encounters", "auth_a");
+        print_r(["oid" => $oid]);
+        die();
         return (new FhirObservationRestController())->getOne($oid);
     },
     "POST /fhir/Patient" => function () {
