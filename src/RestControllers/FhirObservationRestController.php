@@ -38,6 +38,11 @@ class FhirObservationRestController
         return RestControllerHelper::responseHandler($observationResource, null, 200);
     }
 
+    public function createOne($fhirObservation){
+        return $this->fhirService->parseResource($fhirObservation);
+        return RestControllerHelper::responseHandler($observationResource, null, 200);
+    }
+
     public function getAll($search)
     {
         $resourceURL = \RestConfig::$REST_FULL_URL;
