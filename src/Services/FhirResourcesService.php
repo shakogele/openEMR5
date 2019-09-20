@@ -154,7 +154,7 @@ class FhirResourcesService
       $subject = $observationResource->getSubject();
       $value = $observationResource->getValueQuantity();
       $observationArr = [
-        "id"          => $identifier["value"],
+        "id"          => $identifier[0]["value"],
         "date"        => $observationResource->getIssued(),
         "pid"         => explode($subject["reference"])[1],
         "encounter"   => "3",
