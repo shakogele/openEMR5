@@ -39,7 +39,7 @@ class FhirObservationRestController
     }
 
     public function createOne($fhirObservation){
-        return $fhirObservation;
+        return json_encode($fhirObservation);
         return $this->fhirService->parseResource($fhirObservation);
         return RestControllerHelper::responseHandler($observationResource, null, 200);
     }
