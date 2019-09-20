@@ -151,7 +151,8 @@ class FhirResourcesService
       $status = $observationResource->getStatus();
       $identifier = $observationResource->getIdentifier();
       $code = $observationResource->getCode();
-      return $code['coding'];
+      $subject = $observationResource->getSubject();
+      return $subject;
       return $identifier[0]["value"];
       $observationArr = [
         "id"          => "5",
@@ -162,11 +163,11 @@ class FhirResourcesService
         "groupname"   => "Default",
         "authorized"  => "1",
         "activity"    => "1",
-        "code"        => "10839-9",
+        "code"        => $code["code"],
         "observation" => "New Observation",
         "ob_value"    => "",
         "ob_unit"     => null,
-        "description" => "Troponin I.cardiac [Mass/volume] in Serum or Plasma",
+        "description" => $code["display"],
         "code_type"   => "LOINC",
         "table_code"  => "LN"
       ];
