@@ -99,7 +99,7 @@ class FhirResourcesService
 
     public function createObservationResource($resourceId = '', $data = '', $encode = true)
     {
-        // return $data;
+        return $data;
         $nowDate = date("Y-m-d\TH:i:s");
         $fhirIdentifierData = [
           "use" => "official",

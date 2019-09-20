@@ -99,7 +99,6 @@ class ObservationService
                        WHERE fo.id=?
                        ORDER BY fo.id
                        DESC";
-        return $sql;
         return sqlQuery($sql, array($oid));
     }
 
