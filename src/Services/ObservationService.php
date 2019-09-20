@@ -131,6 +131,7 @@ class ObservationService
     public function insert($data)
     {
         $sql = " INSERT INTO form_observation SET";
+        $sql .= "     id=?,";
         $sql .= "     date=?,";
         $sql .= "     pid=?,";
         $sql .= "     encounter=?,";
@@ -149,6 +150,7 @@ class ObservationService
         $results = sqlInsert(
             $sql,
             array(
+                1,
                 $data["date"],
                 $data["pid"],
                 $data["encounter"],
