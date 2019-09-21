@@ -153,7 +153,6 @@ class RestConfig
         if (!$result) {
             if (!self::$notRestCall) {
                 http_response_code(401);
-                return ["Unauthorized" => true];
             }
             exit();
         }
