@@ -53,7 +53,6 @@ if (!empty($_SERVER['HTTP_APICSRFTOKEN'])) {
     $token = $gbl::get_bearer_token();
     if (strlen($token) > 40) {
         // token is a 32 character hash followed by hex encoded 4 char api flag and site id.
-        return ["Hello " => "there"];
         $api_token = substr($token, 0, 32);
         $rest = hex2bin(substr($token, 32));
         $api = substr($rest, 0, 4);
