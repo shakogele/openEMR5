@@ -277,30 +277,33 @@ $check_res = $formid ? $check_res : array();
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <table class="obsTable">
+                                    <table class="obsTable" style="display: block;
+                                    width: 100%;
+                                    background: #ccc;
+                                    padding: 10px;">
                                       <thead>
-                                        <th>Code</th>
-                                        <th>date</th>
-                                        <th>selfAssignedTest</th>
-                                        <th>testTypeName</th>
-                                        <th>testTypeUnit</th>
-                                        <th>userPatientName</th>
-                                        <th>userPhysicianName</th>
-                                        <th>deviceID</th>
-                                        <th>testResult</th>
-                                        <th>userId</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Code</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">date</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">selfAssignedTest</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">testTypeName</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">testTypeUnit</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">userPatientName</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">userPhysicianName</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">deviceID</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">testResult</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">userId</th>
                                       </thead>
                                       <tbody>
-                                        <th>10839-9</th>
-                                        <th>1988-08-26</th>
-                                        <th>true</th>
-                                        <th>Troponin</th>
-                                        <th>12</th>
-                                        <th>Shalva Gelenidze</th>
-                                        <th>Shalva Gelenidze</th>
-                                        <th>12213123</th>
-                                        <th>0.12</th>
-                                        <th>12039129djfns</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">10839-9</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">1988-08-26</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">true</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Troponin</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Shalva Gelenidze</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Shalva Gelenidze</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12213123</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">0.12</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12039129djfns</th>
                                       </tbody>
                                     </table>
                                 </div>
