@@ -219,7 +219,8 @@ $check_res = $formid ? $check_res : array();
                         <?php
                         if (!empty($check_res)) {
                             foreach ($check_res as $key => $obj) { ?>
-                                <div class = "tb_row" id="tb_row_<?php echo attr($key) + 1; ?>">
+                                <div class = "tb_row" id="tb_row_<?php echo attr($key) + 1; ?>" style="padding: 20px 0px;
+    border-bottom: 3px solid teal;">
                                     <div class="form-group">
                                         <div class="forms col-xs-2">
                                             <label for="code_<?php echo attr($key) + 1; ?>" class="h5"><?php echo xlt('Code'); ?>:</label>
