@@ -27,8 +27,7 @@ $returnurl = 'encounter_top.php';
 $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
 
 if ($formid) {
-    $sql = "SELECT `fo`.`*`, pat.id, CONCAT(pat.fname, " ", pat.lname) as patient_name FROM form_observation fo LEFT JOIN patient_data pat ON pat.id=fo.pid WHERE fo.id=? AND fo.pid = ? AND fo.encounter = ?";
-    echo $sql;
+    $sql = "SELECT * FROM form_observation fo LEFT JOIN patient_data pat ON pat.id=fo.pid WHERE fo.id=? AND fo.pid = ? AND fo.encounter = ?";
     $res = sqlStatement($sql, array($formid,$_SESSION["pid"], $_SESSION["encounter"]));
 
     for ($iter = 0; $row = sqlFetchArray($res); $iter++) {
