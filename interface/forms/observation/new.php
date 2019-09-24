@@ -51,6 +51,18 @@ $check_res = $formid ? $check_res : array();
                 width: 100%;
                 text-align:left!Important;
             }
+            .obsTable {
+              display: block;
+              width: 100%;
+              background: #ccc;
+              padding: 10px;
+            }
+            .obsTable th{
+              text-align: left;
+              width: 10%;
+              padding: 10px;
+              border: 1px solid teal;
+            }
         </style>
 
         <script type="text/javascript">
@@ -265,7 +277,7 @@ $check_res = $formid ? $check_res : array();
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <table>
+                                    <table class="obsTable">
                                       <thead>
                                         <th>Code</th>
                                         <th>date</th>
