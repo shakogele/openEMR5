@@ -295,12 +295,12 @@ $check_res = $formid ? $check_res : array();
                                       <tbody>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">true</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Troponin</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo "ob_value"; ?></th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"></th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"></th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12213123</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo "ob_value"; ?></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo "ob_value"; ?></th>
                                       </tbody>
                                     </table>
                                 </div>
