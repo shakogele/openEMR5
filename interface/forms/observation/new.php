@@ -196,7 +196,7 @@ $check_res = $formid ? $check_res : array();
         <div class="container">
             <div class="row">
                 <div class="page-header">
-                    <h2><?php echo xlt('Observation'); ?></h2>
+                    <h2><?php echo xlt('Observation'); ?> sklcmskdcnsdkcjnk nk</h2>
                 </div>
             </div>
             <div class="row">
