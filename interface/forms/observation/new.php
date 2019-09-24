@@ -27,7 +27,7 @@ $returnurl = 'encounter_top.php';
 $formid = 0 + (isset($_GET['id']) ? $_GET['id'] : 0);
 
 if ($formid) {
-    $sql = "SELECT * FROM `form_observation` WHERE id=? AND pid = ? AND encounter = ?";
+    $sql = "SELECT * FROM `form_observation` LEFT JOIN patient_data pat ON pid=id WHERE id=? AND pid = ? AND encounter = ?";
     $res = sqlStatement($sql, array($formid,$_SESSION["pid"], $_SESSION["encounter"]));
 
     for ($iter = 0; $row = sqlFetchArray($res); $iter++) {
