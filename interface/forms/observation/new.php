@@ -196,7 +196,7 @@ $check_res = $formid ? $check_res : array();
         <div class="container">
             <div class="row">
                 <div class="page-header">
-                    <h2><?php echo xlt('Observation'); ?> sklcmskdcnsdkcjnk nk</h2>
+                    <h2><?php echo xlt('Observation'); ?></h2>
                 </div>
             </div>
             <div class="row">
@@ -265,6 +265,32 @@ $check_res = $formid ? $check_res : array();
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
+                                    <table>
+                                      <thead>
+                                        <th>Code</th>
+                                        <th>date</th>
+                                        <th>selfAssignedTest</th>
+                                        <th>testTypeName</th>
+                                        <th>testTypeUnit</th>
+                                        <th>userPatientName</th>
+                                        <th>userPhysicianName</th>
+                                        <th>deviceID</th>
+                                        <th>testResult</th>
+                                        <th>userId</th>
+                                      </thead>
+                                      <tbody>
+                                        <th>10839-9</th>
+                                        <th>1988-08-26</th>
+                                        <th>true</th>
+                                        <th>Troponin</th>
+                                        <th>12</th>
+                                        <th>Shalva Gelenidze</th>
+                                        <th>Shalva Gelenidze</th>
+                                        <th>12213123</th>
+                                        <th>0.12</th>
+                                        <th>12039129djfns</th>
+                                      </tbody>
+                                    </table>
                                 </div>
                                 <?php
                             }
