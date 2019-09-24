@@ -219,6 +219,7 @@ $check_res = $formid ? $check_res : array();
                         <?php
                         if (!empty($check_res)) {
                             foreach ($check_res as $key => $obj) { ?>
+                                <?php print_r($obj); ?>
                                 <div class = "tb_row" id="tb_row_<?php echo attr($key) + 1; ?>">
                                     <div class="form-group">
                                         <div class="forms col-xs-2">
@@ -282,8 +283,6 @@ $check_res = $formid ? $check_res : array();
                                     background: #ccc;
                                     padding: 10px;">
                                       <thead>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Code</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">date</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">selfAssignedTest</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">testTypeName</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">testTypeUnit</th>
@@ -294,16 +293,14 @@ $check_res = $formid ? $check_res : array();
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">userId</th>
                                       </thead>
                                       <tbody>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">10839-9</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">1988-08-26</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">true</th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Troponin</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Shalva Gelenidze</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">Shalva Gelenidze</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"></th>
                                         <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12213123</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">0.12</th>
-                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;">12039129djfns</th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
+                                        <th style="text-align: left; width: 10%; padding: 10px;border: 1px solid teal;"><?php echo $obj{"ob_value"}; ?></th>
                                       </tbody>
                                     </table>
                                 </div>
